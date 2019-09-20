@@ -9,7 +9,197 @@ editor_options:
 
 ## Introduction
 
-```{r}
 
+```{r}
+library(tidyverse)
+#like the tree command on terminal
+new_files <- dir("data", 
+                  recursive=TRUE, 
+                  full.names=TRUE)
+```
+
+To subset the data use the `[` operator. To find a string use the `grepl` function.
+
+```{r}
+fastq_files <- new_files[grepl("fastq",new_files)]
+fastq_1 <- read_lines(fastq_files[1])
+fastq_2 <- read_lines(fastq_files[2])
+head(fastq_1)
+```
+
+Fastq files have four lines per read. 
+1) header line has metadata
+2) sequence
+3) same metadata?
+4) quality score per base
+
+```{r}
+fastq_fields <- c("metadata",
+                 "sequence",
+                 "metadata2",
+                 "score")
+length(fastq_1)
+#This part helps put an ID to all the reads in the fastq dataframe so that it can spread properly.
+num_reads <- length(fastq_1)/4
+read_id <- gl(num_reads, k=4)
+fastq_fields <- rep_len(fastq_fields, 
+                        length.out = length(fastq_1))
+length(fastq_fields)
+```
+
+## Creating Dataframes (`tibbles`)
+
+```{r}
+fastq_df <- tibble(read = read_id,
+                   field = fastq_fields,
+                   lines = fastq_1)
+fastq_df <- fastq_df %>% 
+  filter(field != "metadata2")
+
+pivot_fastq_df <- fastq_df %>%
+  spread(key = field, 
+         value = lines)
+```
+
+```{r}
+head(pivot_fastq_df) %>% 
+  pull(metadata)
+#Take out the information from metadata into three different columns, and change length into an integer.
+pivot_fastq_df <- separate(pivot_fastq_df, 
+                           metadata, 
+                           into = c("sr_id", 
+                                    "tag", 
+                                    "length"), 
+                           sep = " ")
+
+pivot_fastq_df <- mutate(pivot_fastq_df, 
+                         length = str_replace(length, 
+                                              pattern = "length=",
+                                              replacement = "")) %>%
+                  mutate(length=as.integer(length))
+#Make sure that all rows are 36
+filter(pivot_fastq_df, length != 36)
+```
+
+
+## Refactoring
+
+Refactoring is changing code without changing its behavior. You do this because certain code is easier to change than other code: You're rarely done when you think you're done. A powerful way to do this is to take all your code and turn it into a function. 
+
+Let's refactor our code to be a function that takes a fastq file and turns it into a data frame.
+
+```{r}
+read_fastq <- function(file,name=file){
+  fastq_1 <- read_lines(file)
+  fastq_fields <- c("metadata",
+                 "sequence",
+                 "metadata2",
+                 "score")
+  num_reads <- length(fastq_1)/4
+  read_id <- gl(num_reads, k=4)
+  fastq_fields <- rep_len(fastq_fields, 
+                        length.out = length(fastq_1))
+  fastq_df <- tibble(name = name,
+                   read = read_id,
+                   field = fastq_fields,
+                   lines = fastq_1)
+  fastq_df <- fastq_df %>% 
+                  filter(field != "metadata2")
+  pivot_fastq_df <- fastq_df %>%
+                        spread(key = field, 
+                        value = lines)
+  pivot_fastq_df <- separate(pivot_fastq_df, 
+                           metadata, 
+                           into = c("sr_id", 
+                                    "tag", 
+                                    "length"), 
+                           sep = " ")
+
+pivot_fastq_df <- mutate(pivot_fastq_df, 
+                         length = str_replace(length, 
+                                              pattern = "length=",
+                                              replacement = "")) %>%
+                  mutate(length=as.integer(length))
+return(pivot_fastq_df)
+}
+```
+
+```{r}
+fastq_df_1 <- read_fastq(fastq_files[1], name = "SRR097977")
+fastq_df_2 <- read_fastq(fastq_files[2], name = "SRR098026")
+
+#If you already have the dataframes, bind them.
+fastq_df <- bind_rows(fastq_df_1,
+                      fastq_df_2)
+
+#A fancier way to do this is:
+fastq_df <- map_df(fastq_files, 
+                   read_fastq)
+fastq_df <- map2_df(fastq_files, 
+                    c("SRR097977", "SRR098026"), 
+                    read_fastq)
+```
+
+The number of rows across fastq files that have an N in the sequence.
+
+```{r}
+#Three ways to answer this.
+fastq_df_n <- fastq_df[grepl("N", fastq_df$sequence),]
+fastq_df_n <- fastq_df %>%
+                filter(grepl("N", fastq_df$sequence))
+#For these last two, just look at the dimensions of the data. Or:
+fastq_df %>%
+  filter(grepl("N", fastq_df$sequence)) %>%
+  group_by(name) %>%
+  summarise(num_N=n())
+
+#Creating lists out of the sequences. As fundamental of a data type as vectors. 
+fastq_df <- fastq_df %>%
+  mutate(seq_list=str_split(sequence, 
+                            pattern = ""))
+
+fastq_seq_list <- fastq_df$seq_list
+#This is to get the first element of the list. This is the samd as fastq_df$sequence[2], except that seq_list gives you a vector of strings.
+fastq_seq_list[[1]]
+
+count_N <- function(x){
+  sum(x=='N')
+}
+count_N(fastq_seq_list[[1]])
+map_int(fastq_seq_list, count_N)
+fastq_df <- fastq_df %>%
+              mutate(num_N=map_int(seq_list, count_N))
+
+ggplot(fastq_df, aes(x=num_N)) +
+  geom_histogram()
+```
+
+How many of the question mark scores are there at every read?
+
+```{r}
+#Creating lists out of the sequences. As fundamental of a data type as vectors. 
+fastq_df <- fastq_df %>%
+  mutate(score_list=str_split(score, 
+                            pattern = ""))
+
+fastq_score_list <- fastq_df$score_list
+#This is to get the first element of the list. This is the samd as fastq_df$sequence[2], except that seq_list gives you a vector of strings.
+fastq_score_list[[1]]
+
+count_q <- function(x){
+  sum(x=='?')
+}
+#could also straight up make this function more generic
+count_char <- function(x,char="?"){
+  sum(x==char)
+}
+
+count_q(fastq_score_list[[1]])
+map_int(fastq_score_list, count_q)
+fastq_df <- fastq_df %>%
+              mutate(num_q=map_int(score_list, count_q))
+
+ggplot(fastq_df, aes(x=num_q)) +
+  geom_histogram()
 ```
 

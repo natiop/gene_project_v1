@@ -380,7 +380,7 @@ div.section {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -389,7 +389,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -401,7 +401,7 @@ div.section {
 <strong>Last updated:</strong> 2019-09-20
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>gene_project_v1/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -417,12 +417,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -489,10 +489,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomnatiopgeneprojectv1tree367c88676285052eaadb80a801f1573737622f64targetblank367c886a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/natiop/gene_project_v1/tree/367c88676285052eaadb80a801f1573737622f64" target="_blank">367c886</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomnatiopgeneprojectv1tree876b4913fbc858a10acd4347eebec637d906c9c8targetblank876b491a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/natiop/gene_project_v1/tree/876b4913fbc858a10acd4347eebec637d906c9c8" target="_blank">876b491</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomnatiopgeneprojectv1tree367c88676285052eaadb80a801f1573737622f64targetblank367c886a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomnatiopgeneprojectv1tree876b4913fbc858a10acd4347eebec637d906c9c8targetblank876b491a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -502,6 +502,9 @@ Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    figures/
     Ignored:    results/
+
+Unstaged changes:
+    Modified:   analysis/fastq.Rmd
 
 </code></pre>
 <p>
@@ -545,6 +548,23 @@ Message
 html
 </td>
 <td>
+<a href="https://rawcdn.githack.com/natiop/gene_project_v1/876b4913fbc858a10acd4347eebec637d906c9c8/docs/fastq.html" target="_blank">876b491</a>
+</td>
+<td>
+nati piland
+</td>
+<td>
+2019-09-20
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
 <a href="https://rawcdn.githack.com/natiop/gene_project_v1/a9a5856e4541bb41d0a8e462d220aca5328b39d9/docs/fastq.html" target="_blank">a9a5856</a>
 </td>
 <td>
@@ -583,6 +603,254 @@ wflow_publish(“analysis/fastq.Rmd”)
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>Warning: package &#39;tidyverse&#39; was built under R version 3.5.3</code></pre>
+<pre><code>-- Attaching packages --------------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>v ggplot2 3.2.1     v purrr   0.3.2
+v tibble  2.1.3     v dplyr   0.8.3
+v tidyr   1.0.0     v stringr 1.4.0
+v readr   1.3.1     v forcats 0.4.0</code></pre>
+<pre><code>Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
+<pre><code>Warning: package &#39;tibble&#39; was built under R version 3.5.3</code></pre>
+<pre><code>Warning: package &#39;tidyr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>Warning: package &#39;readr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>Warning: package &#39;purrr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>Warning: package &#39;dplyr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>Warning: package &#39;stringr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>Warning: package &#39;forcats&#39; was built under R version 3.5.3</code></pre>
+<pre><code>-- Conflicts ------------------------------------------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>#like the tree command on terminal
+new_files &lt;- dir(&quot;data&quot;, 
+                  recursive=TRUE, 
+                  full.names=TRUE)</code></pre>
+<p>To subset the data use the <code>[</code> operator. To find a string use the <code>grepl</code> function.</p>
+<pre class="r"><code>fastq_files &lt;- new_files[grepl(&quot;fastq&quot;,new_files)]
+fastq_1 &lt;- read_lines(fastq_files[1])
+fastq_2 &lt;- read_lines(fastq_files[2])
+head(fastq_1)</code></pre>
+<pre><code>[1] &quot;@SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36&quot;
+[2] &quot;TATTCTGCCATAATGAAATTCGCCACTTGTTAGTGT&quot;                    
+[3] &quot;+SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36&quot;
+[4] &quot;CCCCCCCCCCCCCCC&gt;CCCCC7CCCCCCACA?5A5&lt;&quot;                    
+[5] &quot;@SRR097977.2 209DTAAXX_Lenski2_1_7:8:3:365:371 length=36&quot;
+[6] &quot;GGTTACTCTTTTAACCTTGATGTTTCGACGCTGTAT&quot;                    </code></pre>
+<p>Fastq files have four lines per read. 1) header line has metadata 2) sequence 3) same metadata? 4) quality score per base</p>
+<pre class="r"><code>fastq_fields &lt;- c(&quot;metadata&quot;,
+                 &quot;sequence&quot;,
+                 &quot;metadata2&quot;,
+                 &quot;score&quot;)
+length(fastq_1)</code></pre>
+<pre><code>[1] 996</code></pre>
+<pre class="r"><code>#This part helps put an ID to all the reads in the fastq dataframe so that it can spread properly.
+num_reads &lt;- length(fastq_1)/4
+read_id &lt;- gl(num_reads, k=4)
+fastq_fields &lt;- rep_len(fastq_fields, 
+                        length.out = length(fastq_1))
+length(fastq_fields)</code></pre>
+<pre><code>[1] 996</code></pre>
+</div>
+<div id="creating-dataframes-tibbles" class="section level2">
+<h2>Creating Dataframes (<code>tibbles</code>)</h2>
+<pre class="r"><code>fastq_df &lt;- tibble(read = read_id,
+                   field = fastq_fields,
+                   lines = fastq_1)
+fastq_df &lt;- fastq_df %&gt;% 
+  filter(field != &quot;metadata2&quot;)
+
+pivot_fastq_df &lt;- fastq_df %&gt;%
+  spread(key = field, 
+         value = lines)</code></pre>
+<pre class="r"><code>head(pivot_fastq_df) %&gt;% 
+  pull(metadata)</code></pre>
+<pre><code>[1] &quot;@SRR097977.1 209DTAAXX_Lenski2_1_7:8:3:710:178 length=36&quot;
+[2] &quot;@SRR097977.2 209DTAAXX_Lenski2_1_7:8:3:365:371 length=36&quot;
+[3] &quot;@SRR097977.3 209DTAAXX_Lenski2_1_7:8:3:663:569 length=36&quot;
+[4] &quot;@SRR097977.4 209DTAAXX_Lenski2_1_7:8:3:715:205 length=36&quot;
+[5] &quot;@SRR097977.5 209DTAAXX_Lenski2_1_7:8:3:639:209 length=36&quot;
+[6] &quot;@SRR097977.6 209DTAAXX_Lenski2_1_7:8:3:721:225 length=36&quot;</code></pre>
+<pre class="r"><code>#Take out the information from metadata into three different columns, and change length into an integer.
+pivot_fastq_df &lt;- separate(pivot_fastq_df, 
+                           metadata, 
+                           into = c(&quot;sr_id&quot;, 
+                                    &quot;tag&quot;, 
+                                    &quot;length&quot;), 
+                           sep = &quot; &quot;)
+
+pivot_fastq_df &lt;- mutate(pivot_fastq_df, 
+                         length = str_replace(length, 
+                                              pattern = &quot;length=&quot;,
+                                              replacement = &quot;&quot;)) %&gt;%
+                  mutate(length=as.integer(length))
+#Make sure that all rows are 36
+filter(pivot_fastq_df, length != 36)</code></pre>
+<pre><code># A tibble: 0 x 6
+# ... with 6 variables: read &lt;fct&gt;, sr_id &lt;chr&gt;, tag &lt;chr&gt;, length &lt;int&gt;,
+#   score &lt;chr&gt;, sequence &lt;chr&gt;</code></pre>
+</div>
+<div id="refactoring" class="section level2">
+<h2>Refactoring</h2>
+<p>Refactoring is changing code without changing its behavior. You do this because certain code is easier to change than other code: You’re rarely done when you think you’re done. A powerful way to do this is to take all your code and turn it into a function.</p>
+<p>Let’s refactor our code to be a function that takes a fastq file and turns it into a data frame.</p>
+<pre class="r"><code>read_fastq &lt;- function(file,name=file){
+  fastq_1 &lt;- read_lines(file)
+  fastq_fields &lt;- c(&quot;metadata&quot;,
+                 &quot;sequence&quot;,
+                 &quot;metadata2&quot;,
+                 &quot;score&quot;)
+  num_reads &lt;- length(fastq_1)/4
+  read_id &lt;- gl(num_reads, k=4)
+  fastq_fields &lt;- rep_len(fastq_fields, 
+                        length.out = length(fastq_1))
+  fastq_df &lt;- tibble(name = name,
+                   read = read_id,
+                   field = fastq_fields,
+                   lines = fastq_1)
+  fastq_df &lt;- fastq_df %&gt;% 
+                  filter(field != &quot;metadata2&quot;)
+  pivot_fastq_df &lt;- fastq_df %&gt;%
+                        spread(key = field, 
+                        value = lines)
+  pivot_fastq_df &lt;- separate(pivot_fastq_df, 
+                           metadata, 
+                           into = c(&quot;sr_id&quot;, 
+                                    &quot;tag&quot;, 
+                                    &quot;length&quot;), 
+                           sep = &quot; &quot;)
+
+pivot_fastq_df &lt;- mutate(pivot_fastq_df, 
+                         length = str_replace(length, 
+                                              pattern = &quot;length=&quot;,
+                                              replacement = &quot;&quot;)) %&gt;%
+                  mutate(length=as.integer(length))
+return(pivot_fastq_df)
+}</code></pre>
+<pre class="r"><code>fastq_df_1 &lt;- read_fastq(fastq_files[1], name = &quot;SRR097977&quot;)
+fastq_df_2 &lt;- read_fastq(fastq_files[2], name = &quot;SRR098026&quot;)
+
+#If you already have the dataframes, bind them.
+fastq_df &lt;- bind_rows(fastq_df_1,
+                      fastq_df_2)
+
+#A fancier way to do this is:
+fastq_df &lt;- map_df(fastq_files, 
+                   read_fastq)
+fastq_df &lt;- map2_df(fastq_files, 
+                    c(&quot;SRR097977&quot;, &quot;SRR098026&quot;), 
+                    read_fastq)</code></pre>
+<p>The number of rows across fastq files that have an N in the sequence.</p>
+<pre class="r"><code>#Three ways to answer this.
+fastq_df_n &lt;- fastq_df[grepl(&quot;N&quot;, fastq_df$sequence),]
+fastq_df_n &lt;- fastq_df %&gt;%
+                filter(grepl(&quot;N&quot;, fastq_df$sequence))
+#For these last two, just look at the dimensions of the data. Or:
+fastq_df %&gt;%
+  filter(grepl(&quot;N&quot;, fastq_df$sequence)) %&gt;%
+  group_by(name) %&gt;%
+  summarise(num_N=n())</code></pre>
+<pre><code># A tibble: 1 x 2
+  name      num_N
+  &lt;chr&gt;     &lt;int&gt;
+1 SRR098026   249</code></pre>
+<pre class="r"><code>#Creating lists out of the sequences. As fundamental of a data type as vectors. 
+fastq_df &lt;- fastq_df %&gt;%
+  mutate(seq_list=str_split(sequence, 
+                            pattern = &quot;&quot;))
+
+fastq_seq_list &lt;- fastq_df$seq_list
+#This is to get the first element of the list. This is the samd as fastq_df$sequence[2], except that seq_list gives you a vector of strings.
+fastq_seq_list[[1]]</code></pre>
+<pre><code> [1] &quot;T&quot; &quot;A&quot; &quot;T&quot; &quot;T&quot; &quot;C&quot; &quot;T&quot; &quot;G&quot; &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;T&quot; &quot;A&quot; &quot;A&quot; &quot;T&quot; &quot;G&quot; &quot;A&quot; &quot;A&quot;
+[18] &quot;A&quot; &quot;T&quot; &quot;T&quot; &quot;C&quot; &quot;G&quot; &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;T&quot; &quot;T&quot; &quot;G&quot; &quot;T&quot; &quot;T&quot; &quot;A&quot; &quot;G&quot; &quot;T&quot;
+[35] &quot;G&quot; &quot;T&quot;</code></pre>
+<pre class="r"><code>count_N &lt;- function(x){
+  sum(x==&#39;N&#39;)
+}
+count_N(fastq_seq_list[[1]])</code></pre>
+<pre><code>[1] 0</code></pre>
+<pre class="r"><code>map_int(fastq_seq_list, count_N)</code></pre>
+<pre><code>  [1]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+ [24]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+ [47]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+ [70]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+ [93]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[116]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[139]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[162]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[185]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[208]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[231]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 34 34 34 34
+[254] 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34
+[277] 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 34 35 34 34 34 33
+[300] 33 33 33 33 33 33 33 33 33 32 32 32 32 32 32 32 32 32 32 32 32 32 32
+[323] 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 35 32
+[346] 32 32 32 30 29 28 28 27 27 27 27 27 27 27 27 27 27 27 26 26 26 25 24
+[369] 23 23 23 23 23 23 23 23 23 23 21 21 21 21 20 20 20 19 19 19 19 18 18
+[392] 18 18 18 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17
+[415] 17 17 17 17 17 17 17 17 17 17 17 34 16 16 16 16 16 16 16 16 16 15 15
+[438] 15 15 15 15 15 15 15 15 15 14 14 14 14 14 14 14 14 14 14 14 14 14 14
+[461] 14 14 14 14 14 14 14 14 14 14 13 13 12 11 11 11 11 11 10 10 10 10 10
+[484] 10 10 10 10 10 10 10 10 10  9  9  9  9  9  9</code></pre>
+<pre class="r"><code>fastq_df &lt;- fastq_df %&gt;%
+              mutate(num_N=map_int(seq_list, count_N))
+
+ggplot(fastq_df, aes(x=num_N)) +
+  geom_histogram()</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/fastq.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>How many of the question mark scores are there at every read?</p>
+<pre class="r"><code>#Creating lists out of the sequences. As fundamental of a data type as vectors. 
+fastq_df &lt;- fastq_df %&gt;%
+  mutate(score_list=str_split(score, 
+                            pattern = &quot;&quot;))
+
+fastq_score_list &lt;- fastq_df$score_list
+#This is to get the first element of the list. This is the samd as fastq_df$sequence[2], except that seq_list gives you a vector of strings.
+fastq_score_list[[1]]</code></pre>
+<pre><code> [1] &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;&gt;&quot; &quot;C&quot;
+[18] &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;7&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;C&quot; &quot;A&quot; &quot;C&quot; &quot;A&quot; &quot;?&quot; &quot;5&quot; &quot;A&quot;
+[35] &quot;5&quot; &quot;&lt;&quot;</code></pre>
+<pre class="r"><code>count_q &lt;- function(x){
+  sum(x==&#39;?&#39;)
+}
+#could also straight up make this function more generic
+count_char &lt;- function(x,char=&quot;?&quot;){
+  sum(x==char)
+}
+
+count_q(fastq_score_list[[1]])</code></pre>
+<pre><code>[1] 1</code></pre>
+<pre class="r"><code>map_int(fastq_score_list, count_q)</code></pre>
+<pre><code>  [1]  1  9  1  5  5 10  4  2  3  1  2  6  6  4  4  1  4  8  7  5  5  4  0
+ [24]  6 10  2  4  4  8  1  1  9  3  5  4  4  0  6  2  7  2  0  4  1  4  0
+ [47]  3  4  8  1  3  8  7  3  2  5  6  3  1  1  3  2  0  1  0  6  4  2  6
+ [70]  5  7  7  4  4  2  4  5  1  7  5  1  6  2  8  6  1  4  0  5  2  7  4
+ [93]  0  0  2  0  3  4  0  3  4  4  2  1  5  9  0  6  4  3  9  5  1  1  3
+[116]  5  0  0  2  1  4  5  2  3  1  6  4  5  3  2  1  7  5  3  3  1  7  1
+[139]  2  7  3  0  4  5  0  6  4  4  5  0  0  5  3  0  0  1  3  5  1  1  4
+[162]  1  1  2  5  1  0  0  1  2  1  1  2  2  0  2  2  0  7  2  6  7  4  0
+[185]  4  3  3  0  4  3  6  6  2  1  0  4  3  4  0  0  0  0  3  5  0  0  5
+[208]  7  2  0  5  0  4  1  2  0  5  1  0  1  1  1  5  5  2  4  4  4  0  1
+[231]  4  4  0  0  4  0  1  7  1  9  1  3  4  7  0  1  7  3  1  0  0  0  0
+[254]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[277]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[300]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[323]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[346]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[369]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[392]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+[415]  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  1  0  0  0  0
+[438]  0  1  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0
+[461]  1  0  0  0  0  0  0  1  2  2  2  0  2  1  0  2  0  0  0  1  0  0  0
+[484]  0  0  0  0  0  0  3  2  3  1  0  2  0  1  0</code></pre>
+<pre class="r"><code>fastq_df &lt;- fastq_df %&gt;%
+              mutate(num_q=map_int(score_list, count_q))
+
+ggplot(fastq_df, aes(x=num_q)) +
+  geom_histogram()</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/fastq.Rmd/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -607,12 +875,26 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
+other attached packages:
+[1] forcats_0.4.0   stringr_1.4.0   dplyr_0.8.3     purrr_0.3.2    
+[5] readr_1.3.1     tidyr_1.0.0     tibble_2.1.3    ggplot2_3.2.1  
+[9] tidyverse_1.2.1
+
 loaded via a namespace (and not attached):
- [1] workflowr_1.4.0 Rcpp_1.0.2      digest_0.6.20   rprojroot_1.3-2
- [5] backports_1.1.4 git2r_0.26.1    magrittr_1.5    evaluate_0.14  
- [9] stringi_1.4.3   fs_1.3.1        whisker_0.4     rmarkdown_1.15 
-[13] tools_3.5.0     stringr_1.4.0   glue_1.3.1      xfun_0.9       
-[17] yaml_2.2.0      compiler_3.5.0  htmltools_0.3.6 knitr_1.25     </code></pre>
+ [1] tidyselect_0.2.5 xfun_0.9         haven_2.1.1      lattice_0.20-35 
+ [5] colorspace_1.4-1 vctrs_0.2.0      generics_0.0.2   htmltools_0.3.6 
+ [9] yaml_2.2.0       utf8_1.1.4       rlang_0.4.0      pillar_1.4.2    
+[13] glue_1.3.1       withr_2.1.2      modelr_0.1.5     readxl_1.3.1    
+[17] lifecycle_0.1.0  munsell_0.5.0    gtable_0.3.0     workflowr_1.4.0 
+[21] cellranger_1.1.0 rvest_0.3.4      evaluate_0.14    labeling_0.3    
+[25] knitr_1.25       fansi_0.4.0      broom_0.5.2      Rcpp_1.0.2      
+[29] scales_1.0.0     backports_1.1.4  jsonlite_1.6     fs_1.3.1        
+[33] hms_0.5.1        digest_0.6.20    stringi_1.4.3    grid_3.5.0      
+[37] rprojroot_1.3-2  cli_1.1.0        tools_3.5.0      magrittr_1.5    
+[41] lazyeval_0.2.2   crayon_1.3.4     whisker_0.4      pkgconfig_2.0.2 
+[45] zeallot_0.1.0    ellipsis_0.2.0.1 xml2_1.2.2       lubridate_1.7.4 
+[49] assertthat_0.2.1 rmarkdown_1.15   httr_1.4.1       rstudioapi_0.10 
+[53] R6_2.4.0         nlme_3.1-137     git2r_0.26.1     compiler_3.5.0  </code></pre>
 </div>
 </div>
 
